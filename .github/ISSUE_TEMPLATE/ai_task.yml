@@ -1,0 +1,35 @@
+name: "AI Task"
+description: "A well-scoped task suitable for an AI assistant to implement via PR"
+title: "AI: "
+labels: ["ai-task"]
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: "What outcome do we want?"
+      placeholder: "Example: Add a docs page defining Canonical Egg v0 schema boundaries."
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope (In / Out)
+      description: "Clarify boundaries to prevent overreach."
+      placeholder: "In: docs only. Out: any code changes."
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: "How do we know it’s done?"
+      placeholder: "- A new docs page exists\n- Linked from README\n- No PII/PHI"
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes / Context
+      description: "Helpful context, links, constraints."
+      placeholder: "Include relevant definitions and constraints."

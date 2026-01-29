@@ -1,0 +1,26 @@
+name: "Decision (ADR)"
+description: "Capture an architecture or policy decision with rationale"
+title: "ADR: "
+labels: ["adr"]
+body:
+  - type: textarea
+    id: decision
+    attributes:
+      label: Decision
+      placeholder: "We will store raw documents in Evidence Vault, and only derived summaries in Canonical Egg."
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      placeholder: "Why this is the best choice (privacy, feasibility, pilot risk)."
+    validations:
+      required: true
+  - type: textarea
+    id: consequences
+    attributes:
+      label: Consequences / Tradeoffs
+      placeholder: "What this enables, what it costs, what risks remain."
+    validations:
+      required: true
