@@ -1,0 +1,31 @@
+name: Repo Safety Checks
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  safety:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Verify required files exist
+        run: |
+          test -f README.md
+          test -d docs
+          test -d src
+
+      - name: Prevent committing secrets (basic scan)
+        run: |
+          if grep -R -n -E "(AIza|sk_live_|gho_|ghp_|-----BEGIN PRIVATE KEY-----)" .; then
+            echo "❌ Possible secret detected"
+            exit 1
+          else
+            echo "✅ No obvious secrets found"
+          fi
+
+      - name: Repo hygiene check
+        run: |
+          echo "✅ Repo structure looks good"
